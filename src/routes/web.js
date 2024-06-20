@@ -12,9 +12,9 @@ const initRouter = (app) => {
 }
 
 const userRouter = (app) => {
-    router.get('/', userController.posts);
-    router.get('/form-add', userController.userForm);
+    router.get('/', userController.userForm); router.get('/', userController.userForm);
 
+    router.post('/remove-user/:id', userController.handleRemoveUser)
     router.post('/user-create', userController.handleCreateUser)
     return app.use('/user', router);
 }

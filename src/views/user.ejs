@@ -35,6 +35,45 @@
             </div>
 
         </form>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(item,index){ %>
+                        <tr>
+                            <th scope="row">
+                                <%= index + 1 %>
+                            </th>
+                            <td>
+                                <%= item.username %>
+                            </td>
+                            <td>
+                                <%= item.password %>
+                            </td>
+                            <td>
+                                <%= item.email %>
+                            </td>
+                            <td colspan="2">
+                                <button type="button" class="btn btn-primary">Edit</button>
+                                <form action="/remove-user/<%= item.id %>" style="display: inline;" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
