@@ -4,7 +4,10 @@
     "password": "mysql",
     "database": "crud_jwt_nodejs",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define":{
+      "freezeTableName": true
+    }
   },
   "test": {
     "username": "root",

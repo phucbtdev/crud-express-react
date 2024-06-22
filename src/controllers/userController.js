@@ -12,6 +12,7 @@ const userForm = async (req, res) => {
 const getPageUpdateUser = async (req, res) => {
     const id = req.params.id;
     const user = await getUserById(id);
+    console.log(user);
     res.render('edit', { user });
 }
 
