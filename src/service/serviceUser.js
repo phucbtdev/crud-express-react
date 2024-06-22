@@ -1,6 +1,6 @@
 import pool from '../config/database';
 import bcrypt from 'bcryptjs';
-import db from '../../models';
+import db from '../models/index.js';
 
 
 const getAllUsers = async () => {
@@ -10,8 +10,14 @@ const getAllUsers = async () => {
 }
 
 const getUserById = async (idUser) => {
-    // let users = [];
-    let user = await db.User.findOne({ where: { id: idUser } });
+    let user = await db.User.findOne(
+        {
+            where: { id: idUser },
+            attributes: ['username', 'password'],
+            include: { model: db.Group, attributes: ['name'] },
+            raw: true,
+            nest: true
+        });
     return user;
 }
 
