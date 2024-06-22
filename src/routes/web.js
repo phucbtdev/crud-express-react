@@ -12,10 +12,13 @@ const initRouter = (app) => {
 }
 
 const userRouter = (app) => {
-    router.get('/', userController.userForm); router.get('/', userController.userForm);
+    router.get('/', userController.userForm);
+    router.get('/edit/:id', userController.getPageUpdateUser);
 
-    router.post('/remove-user/:id', userController.handleRemoveUser)
-    router.post('/user-create', userController.handleCreateUser)
+    router.post('/remove-user/:id', userController.handleRemoveUser);
+    router.post('/user-create', userController.handleCreateUser);
+    router.post('/update', userController.handleUpdateUser);
+
     return app.use('/user', router);
 }
 
